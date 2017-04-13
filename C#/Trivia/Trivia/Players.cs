@@ -30,5 +30,6 @@ namespace Trivia
             Console.WriteLine("They are player number " + _players.Count);
             return true;
         }
+        
     }
 }

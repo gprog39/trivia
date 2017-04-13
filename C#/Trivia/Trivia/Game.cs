@@ -20,16 +20,16 @@ namespace Trivia
             _players = players;
             for (var i = 0; i < 50; i++)
             {
-                _quespopQuestions.AddLast("Pop Question " + i);
-                scienceQuestions.AddLast(("Science Question " + i));
-                sportsQuestions.AddLast(("Sports Question " + i));
-                rockQuestions.AddLast(_question.CreateRockQuestion(i));
+                _question._popQuestions.AddLast("Pop Question " + i);
+                _question._scienceQuestions.AddLast(("Science Question " + i));
+                _question._sportsQuestions.AddLast(("Sports Question " + i));
+                _question._rockQuestions.AddLast(_question.CreateRockQuestion(i));
             }
         }
         
         
 
-        public void Roll(int roll, int currentPlace)
+        public void Roll(int roll)
         {
             Console.WriteLine(_players.Current.Name + " is the current player");
             Console.WriteLine("They have rolled a " + roll);
@@ -46,7 +46,7 @@ namespace Trivia
                     Console.WriteLine(_players.Current.Name
                             + "'s new location is "
                             + _players.Current.Place);
-                    Console.WriteLine("The category is " + _question.CurrentCategory(currentPlace));
+                    Console.WriteLine("The category is " + _question.CurrentCategory(_players.Current.Place));
                     _question.AskQuestion(_players.Current.Place);
                 }
                 else
@@ -63,8 +63,8 @@ namespace Trivia
                 Console.WriteLine(_players.Current.Name
                         + "'s new location is "
                         + _players.Current.Place);
-                Console.WriteLine("The category is " + _question.CurrentCategory(currentPlace));
-                _question.AskQuestion(currentPlace);
+                Console.WriteLine("The category is " + _question.CurrentCategory(_players.Current.Place));
+                _question.AskQuestion(_players.Current.Place);
             }
 
         }

@@ -12,9 +12,9 @@ namespace Trivia
             {
                 var aGame = new Game();
 
-                aGame.Add("Chet");
-                aGame.Add("Pat");
-                aGame.Add("Sue");
+                aGame.add("Chet");
+                aGame.add("Pat");
+                aGame.add("Sue");
 
                 Random rand = new Random(i);
 
@@ -24,11 +24,11 @@ namespace Trivia
 
                     if (rand.Next(9) == 7)
                     {
-                        notAWinner = aGame.WrongAnswer();
+                        notAWinner = aGame.wrongAnswer();
                     }
                     else
                     {
-                        notAWinner = aGame.WasCorrectlyAnswered();
+                        notAWinner = aGame.wasCorrectlyAnswered();
                     }
                 } while (notAWinner);
             }

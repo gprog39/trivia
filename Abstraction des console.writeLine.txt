@@ -1,0 +1,2 @@
+Pour abstraire console.WrtieLine, il faut faire des interfaces. 
+Faire des objets => meilleure organisation des données, plus facile à réutiliser pour faire le site web en angularJS

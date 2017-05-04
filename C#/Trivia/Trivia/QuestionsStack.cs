@@ -7,20 +7,20 @@ namespace Trivia
     public class QuestionsStack
     {
         private readonly string _category;
-        private readonly LinkedList<string> questions = new LinkedList<string>();
-        private IQuestionsRepository QuestionRepository;
-        public QuestionsStack(string category, IQuestionsRepository QuestionRepository)
+        private readonly LinkedList<string> _questions = new LinkedList<string>();
+        private IQuestionsRepository _questionRepository;
+        public QuestionsStack(string category, IQuestionsRepository questionRepository)
         {
             _category = category;
-            this.QuestionRepository = QuestionRepository;
-            questions = QuestionRepository.GetQuestion(_category);
+            this._questionRepository = questionRepository;
+            _questions = questionRepository.GetQuestion(_category);
         }
 
         public void AskQuestionAndDiscardIt()
         {
             Console.WriteLine("The category is " + _category);
-            Console.WriteLine(questions.First());
-            questions.RemoveFirst();
+            Console.WriteLine(_questions.First());
+            _questions.RemoveFirst();
         }
 
        

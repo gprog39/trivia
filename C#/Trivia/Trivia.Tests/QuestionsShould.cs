@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using NFluent;
+//using NFluent;
 using NUnit.Framework;
 
 namespace Trivia.Tests
@@ -13,16 +13,17 @@ namespace Trivia.Tests
             // Arrange/Actors
             var stringWriter = new StringWriter();
             var previousConsoleOut = Console.Out;
+            IQuestionsRepository QuestionRepository = new GeneratedQuestionsRepository();
             Console.SetOut(stringWriter);
             const string category5 = "Category5";
-            var questions = new Questions(new []{ "Category1", "Category2", "Category3", "category4", category5 });
+            var questions = new Questions(new []{ "Category1", "Category2", "Category3", "category4", category5 }, QuestionRepository);
 
             // Act
             questions.AskQuestion(4);
 
             // Assert
             Assert.That(stringWriter.ToString().Contains(category5), Is.True);
-            Check.That(stringWriter.ToString()).Contains(category5);
+           // Check.That(stringWriter.ToString()).Contains(category5);
             Console.SetOut(previousConsoleOut);
         }
     }

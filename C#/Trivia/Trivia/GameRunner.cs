@@ -5,9 +5,10 @@ namespace Trivia
     public class GameRunner
     {
         private static bool winner;
-
+        private static IQuestionsRepository QuestionRepository;
         public static void Main(String[] args)
         {
+            QuestionRepository = new GeneratedQuestionsRepository();
             for (var i = 0; i < 10; i++)
             {
                 var players = new Players();
@@ -15,7 +16,7 @@ namespace Trivia
                 players.Add("Pat");
                 players.Add("Sue");
 
-                var questions = new Questions(new[] {"Pop", "Science", "Sports", "Rock"});
+                var questions = new Questions(new[] {"Pop", "Science", "Sports", "Rock"}, QuestionRepository);
 
                 var aGame = new Game(players, questions);
 

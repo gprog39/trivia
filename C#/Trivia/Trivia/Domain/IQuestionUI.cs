@@ -10,4 +10,6 @@ namespace Trivia.Presentation
     {
         void Display(string message);
     }
+
+    
 }

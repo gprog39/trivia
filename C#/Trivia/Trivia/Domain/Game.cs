@@ -15,9 +15,10 @@ namespace Trivia
 
         bool isGettingOutOfPenaltyBox;
 
-        private ConsoleUi consoleWrite;
+        private readonly IQuestionUI _questionUi;
 
-        public Game(Players players, Questions questions)
+
+        public Game(Players players, Questions questions, IQuestionUI questionUI)
         {
             _players = players;
             _questions = questions;
